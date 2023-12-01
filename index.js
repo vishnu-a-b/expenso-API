@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 app.get('/', async (req, res) => {
   try {
-    res.status(200).json({ Expenso: 'working' });
+    res.status(200).json({ Expenso: 'working...' });
   } catch (error) {
     res.status(500).json({ error: 'Error fetching records' });
   }
