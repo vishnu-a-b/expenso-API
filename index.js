@@ -10,6 +10,17 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+
+// Get all records
+app.get('/api/getAllRecords', async (req, res) => {
+  try {
+    const allRecords = await prisma.testTable.findMany();
+    res.status(200).json(allRecords);
+  } catch (error) {
+    res.status(500).json({ error: 'Error fetching records' });
+  }
+});
+
 // Create a new record
 app.post('/api/addRecord', async (req, res) => {
   const { name, age } = req.body;
