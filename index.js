@@ -13,6 +13,13 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.get('/', async (req, res) => {
+  try {
+    res.status(200).send("EXPENSO");
+  } catch (error) {
+    res.status(500).json({ error: 'Error fetching records' });
+  }
+});
 
 // Get all records
 app.get('/api/getAllRecords', async (req, res) => {
